@@ -1,54 +1,54 @@
 {
   "usuarios": [
     {
-      "nome": "lucas",
-      "email": "lucas@email.com",
-      "idade": "23",
-      "cidade": "Nova Veneza",
-      "senha": "123",
-      "id": 5
-    },
-    {
       "nome": "Luan Zuchinali Zanardo",
-      "email": "luanzanardo2021@outlook.com",
+      "email": "luanzanardo@outlook.com",
       "idade": "19",
       "cidade": "Nova Veneza",
       "senha": "123",
-      "id": 6
+      "id": 1
+    },
+    {
+      "nome": "André Ugioni Zanardo",
+      "email": "andre@outlook.com",
+      "idade": "47",
+      "cidade": "Nova Veneza",
+      "senha": "123",
+      "id": 2
     }
   ],
   "servicos": [
     {
-      "nome": "Manutenção",
-      "descricao": "Trocar memória ram",
-      "preco": "300",
-      "prazo": "5 dias",
-      "cliente": "Eduardo",
+      "nome": "Desenvolvimento de site institucional",
+      "descricao": "Criação de site responsivo para apresentação da empresa",
+      "preco": "2.500,00",
+      "prazo": "15 dias",
+      "cliente": "Agência Alpha",
+      "id": 1
+    },
+    {
+      "nome": "Manutenção de computador",
+      "descricao": "Reparação de hardware e limpeza de sistema",
+      "preco": "350,00",
+      "prazo": "3 dias",
+      "cliente": "João Silva",
       "id": 2
     },
     {
-      "nome": "Pedro",
-      "descricao": "Criação de site",
-      "preco": "500",
-      "prazo": "15 dias",
-      "cliente": "Empresa A",
+      "nome": "Consultoria em marketing digital",
+      "descricao": " Análise e estratégia para redes sociais",
+      "preco": "1200",
+      "prazo": "10 dias",
+      "cliente": "Startup Beta",
       "id": 3
     },
     {
-      "nome": "Luan Zuchinali Zanardo",
-      "descricao": "Mudança",
-      "preco": "500",
-      "prazo": "15 dias",
-      "cliente": "Empresa A",
+      "nome": "Design de logo",
+      "descricao": "Criação de identidade visual para marca nova",
+      "preco": "800,00",
+      "prazo": "7 dias",
+      "cliente": "Loja Gamma",
       "id": 4
-    },
-    {
-      "nome": "Luan Zuchinali Zanardo",
-      "descricao": "Mudança",
-      "preco": "1200",
-      "prazo": "15 dias",
-      "cliente": "Empresa A",
-      "id": 5
     }
   ]
 }

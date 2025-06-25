@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/api';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function Auth({ setIsLoggedIn }) {
-  const [mode, setMode] = useState('login'); // 'login' ou 'register'
+  const [mode, setMode] = useState('login');
   const [form, setForm] = useState({
     nome: '',
     email: '',
@@ -13,9 +14,9 @@ export default function Auth({ setIsLoggedIn }) {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  // 🔐 Força logout ao entrar na tela /auth
   useEffect(() => {
     localStorage.removeItem('loggedIn');
     setIsLoggedIn(false);
@@ -127,14 +128,25 @@ export default function Auth({ setIsLoggedIn }) {
             className="w-full px-3 py-2 border rounded"
           />
 
-          <input
-            type="password"
-            name="senha"
-            placeholder="Senha"
-            value={form.senha}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
-          />
+          {/* Campo de senha com botão para mostrar/esconder */}
+          <div className="relative">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              name="senha"
+              placeholder="Senha"
+              value={form.senha}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded pr-10"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-2 top-2 text-gray-600 hover:text-gray-800"
+              title={showPassword ? 'Esconder senha' : 'Mostrar senha'}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
 
           <button
             type="submit"
