@@ -1,16 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/api';
 
-export default function Auth() {
+export default function Auth({ setIsLoggedIn }) {
   const [mode, setMode] = useState('login'); // 'login' ou 'register'
-  const [form, setForm] = useState({ nome: '', email: '', idade: '', cidade: '', senha: '' });
+  const [form, setForm] = useState({
+    nome: '',
+    email: '',
+    idade: '',
+    cidade: '',
+    senha: '',
+  });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
-  const handleChange = e => {
-    setForm({...form, [e.target.name]: e.target.value });
+  // 🔐 Força logout ao entrar na tela /auth
+  useEffect(() => {
+    localStorage.removeItem('loggedIn');
+    setIsLoggedIn(false);
+  }, [setIsLoggedIn]);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const clearMessages = () => {
@@ -42,6 +54,7 @@ export default function Auth() {
       const res = await api.get(`/usuarios?email=${form.email}&senha=${form.senha}`);
       if (res.data.length === 1) {
         localStorage.setItem('loggedIn', 'true');
+        setIsLoggedIn(true);
         navigate('/servicos');
       } else {
         setError('Email ou senha incorretos.');
@@ -52,7 +65,7 @@ export default function Auth() {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (mode === 'login') {
       handleLogin();
@@ -123,7 +136,10 @@ export default function Auth() {
             className="w-full px-3 py-2 border rounded"
           />
 
-          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          >
             {mode === 'login' ? 'Entrar' : 'Registrar'}
           </button>
         </form>
@@ -132,14 +148,28 @@ export default function Auth() {
           {mode === 'login' ? (
             <p className="text-sm">
               Ainda não tem conta?{' '}
-              <button onClick={() => { setMode('register'); clearMessages(); }} className="text-blue-600 hover:underline">
+              <button
+                onClick={() => {
+                  setMode('register');
+                  clearMessages();
+                }}
+                className="text-blue-600 hover:underline"
+                type="button"
+              >
                 Crie uma agora
               </button>
             </p>
           ) : (
             <p className="text-sm">
               Já tem uma conta?{' '}
-              <button onClick={() => { setMode('login'); clearMessages(); }} className="text-blue-600 hover:underline">
+              <button
+                onClick={() => {
+                  setMode('login');
+                  clearMessages();
+                }}
+                className="text-blue-600 hover:underline"
+                type="button"
+              >
                 Faça login
               </button>
             </p>

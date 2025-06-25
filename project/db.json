@@ -1,21 +1,54 @@
 {
   "usuarios": [
     {
-      "nome": "Luan",
+      "nome": "lucas",
+      "email": "lucas@email.com",
+      "idade": "23",
+      "cidade": "Nova Veneza",
+      "senha": "123",
+      "id": 5
+    },
+    {
+      "nome": "Luan Zuchinali Zanardo",
       "email": "luanzanardo2021@outlook.com",
       "idade": "19",
       "cidade": "Nova Veneza",
       "senha": "123",
-      "id": 1
+      "id": 6
+    }
+  ],
+  "servicos": [
+    {
+      "nome": "Manutenção",
+      "descricao": "Trocar memória ram",
+      "preco": "300",
+      "prazo": "5 dias",
+      "cliente": "Eduardo",
+      "id": 2
     },
     {
       "nome": "Pedro",
-      "email": "pedro@gmail.com",
-      "idade": "123",
-      "cidade": "Nova Veneza",
-      "senha": "123",
-      "id": 2
+      "descricao": "Criação de site",
+      "preco": "500",
+      "prazo": "15 dias",
+      "cliente": "Empresa A",
+      "id": 3
+    },
+    {
+      "nome": "Luan Zuchinali Zanardo",
+      "descricao": "Mudança",
+      "preco": "500",
+      "prazo": "15 dias",
+      "cliente": "Empresa A",
+      "id": 4
+    },
+    {
+      "nome": "Luan Zuchinali Zanardo",
+      "descricao": "Mudança",
+      "preco": "1200",
+      "prazo": "15 dias",
+      "cliente": "Empresa A",
+      "id": 5
     }
-  ],
-  "servicos": []
+  ]
 }

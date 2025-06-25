@@ -1,10 +1,11 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 
-export default function Navbar() {
+export default function Navbar({ setIsLoggedIn }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem('loggedIn');
+    setIsLoggedIn(false);  // Atualiza o estado global para esconder a Navbar
     navigate('/auth');
   };
 

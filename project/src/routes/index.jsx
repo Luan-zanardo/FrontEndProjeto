@@ -1,19 +1,28 @@
-import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Auth from '../pages/Auth'
+import Auth from '../pages/Auth';
 import Usuarios from '../pages/Usuarios';
 import Servicos from '../pages/Servicos';
 
-const RoutesApp = () => {
-  const isLoggedIn = localStorage.getItem('loggedIn');
-
+export default function RoutesApp({ isLoggedIn, setIsLoggedIn }) {
   return (
     <Routes>
-      <Route path="/auth" element={<Auth />} />
-      <Route path="/usuarios" element={isLoggedIn ? <Usuarios /> : <Navigate to="/auth" />} />
-      <Route path="/servicos" element={isLoggedIn ? <Servicos /> : <Navigate to="/auth" />} />
+      <Route
+        path="/auth"
+        element={<Auth setIsLoggedIn={setIsLoggedIn} />}
+      />
+      <Route
+        path="/usuarios"
+        element={isLoggedIn ? <Usuarios /> : <Navigate to="/auth" replace />}
+      />
+      <Route
+        path="/servicos"
+        element={isLoggedIn ? <Servicos /> : <Navigate to="/auth" replace />}
+      />
+      <Route
+        path="/"
+        element={<Navigate to={isLoggedIn ? "/usuarios" : "/auth"} replace />}
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
-};
-
-export default RoutesApp;
+}
