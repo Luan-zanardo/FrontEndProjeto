@@ -1,0 +1,21 @@
+{
+  "usuarios": [
+    {
+      "nome": "Luan",
+      "email": "luanzanardo2021@outlook.com",
+      "idade": "19",
+      "cidade": "Nova Veneza",
+      "senha": "123",
+      "id": 1
+    },
+    {
+      "nome": "Pedro",
+      "email": "pedro@gmail.com",
+      "idade": "123",
+      "cidade": "Nova Veneza",
+      "senha": "123",
+      "id": 2
+    }
+  ],
+  "servicos": []
+}
